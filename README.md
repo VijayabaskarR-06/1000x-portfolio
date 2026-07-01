@@ -8,8 +8,8 @@ A single-page portfolio for **1000XDEV / ThousandX Ventures LLP**, an AI-native 
 
 ## Run
 
-Open `1000x-portfolio.html` in any browser. Screenshots live in `images/` — keep that folder next to the HTML.
+Open `index.html` in any browser. Screenshots live in `images/` — keep that folder next to the HTML.
 
-## Deploy (GitHub Pages)
+## Deploy
 
-Settings → Pages → deploy from `main` branch, then rename `1000x-portfolio.html` to `index.html` (or add a redirect).
+Static site, no build step. On **Vercel** it serves `index.html` at the root automatically. On **GitHub Pages**: Settings → Pages → deploy from `main` branch (root).
