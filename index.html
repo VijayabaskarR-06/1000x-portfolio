@@ -119,8 +119,19 @@ nav{position:sticky;top:0;z-index:100;height:64px;background:rgba(6,7,11,.72);ba
 .ab-i{display:inline-flex;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.5px;color:var(--cyan);background:rgba(44,217,229,.08);border:1px solid var(--border2);border-radius:8px;padding:5px 10px;margin-bottom:15px}
 .ab-t{font-size:14.5px;font-weight:600;color:var(--white);margin-bottom:7px}
 .ab-d{font-size:12.5px;color:var(--dim);line-height:1.55}
+.about-grid.why{margin-top:14px}
+/* 10x pillars */
+.pillars{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pillar{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px 24px;overflow:hidden;transition:border-color .2s,transform .2s}
+.pillar:hover{border-color:var(--border2);transform:translateY(-3px)}
+.pillar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--blue),var(--cyan))}
+.pill-n{font-size:36px;font-weight:800;letter-spacing:-2px;line-height:1;background:linear-gradient(100deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.pill-t{font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px}
+.pill-d{font-size:12.5px;color:var(--dim);line-height:1.5}
+.mini-sh{max-width:var(--max);margin:0 auto;padding:34px clamp(20px,4vw,48px) 4px;text-align:center}
+.mini-sh .ey{font-family:var(--mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan)}
 @media(max-width:900px){.cap-wrap,.about-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.cap-wrap,.about-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.cap-wrap,.about-grid,.pillars{grid-template-columns:1fr}}
 
 /* FILTERS */
 .filter-wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px) 26px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
@@ -268,15 +279,15 @@ footer{border-top:1px solid var(--border);margin-top:clamp(56px,8vw,88px)}
 <div id="about"></div>
 <div class="sh">
   <div class="ey">Who we are</div>
-  <h2>A studio <span class="grad">&amp;</span> a product lab</h2>
-  <p>An AI-native team that builds, launches and scales its own products — and yours.</p>
+  <h2>We build software like <span class="grad">infrastructure</span></h2>
+  <p>An AI-native product studio engineering resilient products — built to handle your first million users.</p>
 </div>
 
 <div class="about-hero">
   <div class="inner">
     <div class="ab-tag">◆ Built &amp; run in-house</div>
-    <div class="ab-h">We ship products, not just websites.</div>
-    <div class="ab-p">Save8, Form Bharo and Youvan are our own products — live, with real users at scale. You get a team that thinks like a founder, not a vendor: sharper calls, real skin in the game.</div>
+    <div class="ab-h">A studio and a product lab.</div>
+    <div class="ab-p">Save8, Form Bharo and Youvan are our own products — live, with real users at scale. So you work with a team that thinks like a founder, not a vendor: sharper calls, real skin in the game.</div>
     <div class="ab-badges">
       <span class="ab-badge">Save8 · AI shopping</span>
       <span class="ab-badge">Form Bharo · admissions</span>
@@ -285,13 +296,21 @@ footer{border-top:1px solid var(--border);margin-top:clamp(56px,8vw,88px)}
   </div>
 </div>
 
-<div class="about-grid">
-  <div class="ab-card2"><div class="ab-i">AI-NATIVE</div><div class="ab-t">Faster, leaner delivery</div><div class="ab-d">AI across our workflow — 3× faster, ~30% leaner, MVP in 8 weeks.</div></div>
-  <div class="ab-card2"><div class="ab-i">WHITE-LABEL</div><div class="ab-t">Silent agency partner</div><div class="ab-d">Full white-label, NDA day one. Your brand, your credit.</div></div>
-  <div class="ab-card2"><div class="ab-i">GLOBAL</div><div class="ab-t">Always in your timezone</div><div class="ab-d">India · New York · Dubai · New Zealand — all covered.</div></div>
-  <div class="ab-card2"><div class="ab-i">TRUSTED</div><div class="ab-t">Proven track record</div><div class="ab-d">50+ products · 5.0 on Clutch · 100% client satisfaction.</div></div>
+<div class="pillars">
+  <div class="pillar"><div class="pill-n">10×</div><div class="pill-t">Speed</div><div class="pill-d">Fast strategy, working prototypes, clean launches — MVP in 8 weeks.</div></div>
+  <div class="pillar"><div class="pill-n">10×</div><div class="pill-t">Quality</div><div class="pill-d">Production-grade, standards-first architecture. No prototypes shipped.</div></div>
+  <div class="pillar"><div class="pill-n">10×</div><div class="pill-t">Scale</div><div class="pill-d">AI-native systems built to hold your first million users.</div></div>
 </div>
 
+<div class="mini-sh"><div class="ey">Why teams choose 1000X</div></div>
+<div class="about-grid why">
+  <div class="ab-card2"><div class="ab-i">FOUNDER-LEVEL</div><div class="ab-t">Partners, not vendors</div><div class="ab-d">Founder-level thinking on every build — from first call to launch.</div></div>
+  <div class="ab-card2"><div class="ab-i">SCALE</div><div class="ab-t">Built for scale</div><div class="ab-d">AI-native, standards-first architecture from day one.</div></div>
+  <div class="ab-card2"><div class="ab-i">PROCESS</div><div class="ab-t">No-bullshit process</div><div class="ab-d">Discovery → planning → build → launch. No bureaucracy.</div></div>
+  <div class="ab-card2"><div class="ab-i">TRANSPARENT</div><div class="ab-t">Transparent delivery</div><div class="ab-d">Weekly demos and async updates — always in the loop.</div></div>
+</div>
+
+<div class="mini-sh"><div class="ey">Trusted across India · New York · Dubai · New Zealand</div></div>
 <div class="stack-strip">
   <span class="chip hot">Next.js</span><span class="chip hot">React Native</span><span class="chip hot">Supabase</span><span class="chip hot">Shopify</span><span class="chip hot">GPT-4o</span><span class="chip hot">Claude API</span><span class="chip">RAG</span><span class="chip">Node · Nest.js</span><span class="chip">AWS</span><span class="chip">Vercel</span>
 </div>
@@ -470,7 +489,7 @@ btns.forEach(b => b.addEventListener('click', () => {
 
 /* ---- Scroll-reveal (fade + rise, subtle stagger) ---- */
 // tag the static sections so they animate in like the cards
-['.hero > *','.stat-box','.sh','.about-hero .inner','.ab-card2','.cap-card','.stack-strip','.t-card','.wl-card','.foot-inner'].forEach(sel => {
+['.hero > *','.stat-box','.sh','.about-hero .inner','.pillar','.mini-sh','.ab-card2','.cap-card','.stack-strip','.t-card','.wl-card','.foot-inner'].forEach(sel => {
   document.querySelectorAll(sel).forEach((el,i) => {
     el.classList.add('reveal');
     if (!el.dataset.delay) el.dataset.delay = (i % 5) * 70;
