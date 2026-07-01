@@ -305,13 +305,13 @@ footer{border-top:1px solid var(--border);margin-top:clamp(56px,8vw,88px)}
 </div>
 
 <div class="filter-wrap">
-  <button class="fbtn" data-f="ai">AI / SaaS</button>
+  <button class="fbtn on" data-f="ai">AI / SaaS</button>
   <button class="fbtn" data-f="edtech">EdTech</button>
   <button class="fbtn" data-f="ecom">E-commerce</button>
   <button class="fbtn" data-f="fintech">Fintech</button>
   <button class="fbtn" data-f="mobile">Mobile</button>
   <button class="fbtn" data-f="enterprise">Enterprise</button>
-  <button class="fbtn on" data-f="all">All</button>
+  <button class="fbtn" data-f="all">All</button>
 </div>
 
 <div class="grid-wrap">
@@ -485,6 +485,9 @@ const io = new IntersectionObserver((entries,obs) => {
   });
 }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* open on the AI / SaaS filter by default */
+document.querySelector('.fbtn.on')?.click();
 </script>
 </body>
 </html>
