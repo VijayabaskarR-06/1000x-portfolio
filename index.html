@@ -146,28 +146,37 @@ nav{position:sticky;top:0;z-index:100;height:64px;background:rgba(6,7,11,.72);ba
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 
 /* CARD */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}
-.card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 18px 50px -20px rgba(0,0,0,.8)}
-.card.feat{border-color:rgba(91,124,255,.3)}
-.card-img{width:100%;aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--s2)}
-.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,13,20,.5));pointer-events:none}
-.card-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s ease}
-.card:hover .card-img img{transform:scale(1.06)}
-.card-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--dim);background:linear-gradient(135deg,var(--s2),var(--surface))}
-.badge{position:absolute;top:11px;left:11px;z-index:2;background:rgba(6,7,11,.72);backdrop-filter:blur(6px);color:#fff;font-size:9.5px;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px;border:1px solid var(--border2);display:flex;align-items:center;gap:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--border2);transform:translateY(-5px);box-shadow:0 22px 55px -22px rgba(0,0,0,.85)}
+/* flagship gradient ring */
+.card.feat{border-color:rgba(79,124,255,.4)}
+.card.feat::after{content:'';position:absolute;inset:0;border-radius:14px;padding:1px;background:linear-gradient(125deg,var(--blue),var(--cyan) 40%,transparent 65%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.6;pointer-events:none;transition:opacity .25s}
+.card.feat:hover::after{opacity:1}
+
+/* browser-frame screenshot */
+.shot{position:relative}
+.shot-bar{height:30px;display:flex;align-items:center;gap:7px;padding:0 12px;background:var(--s2);border-bottom:1px solid var(--border)}
+.shot-bar .tl{width:9px;height:9px;border-radius:50%;flex-shrink:0;opacity:.9}
+.tl.r{background:#ff5f57}.tl.y{background:#febc2e}.tl.g{background:#28c840}
+.shot-url{margin-left:6px;flex:1;min-width:0;font-family:var(--mono);font-size:10.5px;color:var(--dim);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 12px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .2s,border-color .2s}
+.card:hover .shot-url{color:var(--text);border-color:var(--border2)}
+.shot-view{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--s2)}
+.shot-view img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .shot-view img{transform:scale(1.06)}
+.shot-view .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;letter-spacing:.5px;color:var(--dim);background:linear-gradient(135deg,var(--s2),var(--surface))}
+.shot-cta{position:absolute;bottom:12px;right:12px;z-index:3;font-family:var(--mono);font-size:11px;color:#fff;background:linear-gradient(92deg,var(--blue),var(--violet));padding:6px 13px;border-radius:100px;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .25s;pointer-events:none;box-shadow:0 8px 20px -6px var(--glow)}
+.card:hover .shot-cta{opacity:1;transform:none}
+
+.badge{position:absolute;top:10px;left:10px;z-index:2;background:rgba(6,7,11,.74);backdrop-filter:blur(6px);color:#fff;font-size:9.5px;font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px;border:1px solid var(--border2);display:flex;align-items:center;gap:6px}
 .badge .bd{width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
-.card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .card-name{font-size:15.5px;font-weight:600;color:var(--white);letter-spacing:-.2px}
-.card-desc{font-size:12.5px;color:var(--dim);line-height:1.5;letter-spacing:-.1px}
+.card-desc{font-size:12.5px;color:var(--dim);line-height:1.5;letter-spacing:-.1px;flex:1}
 .arr{width:28px;height:28px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--dim);flex-shrink:0;transition:background .2s,transform .2s,color .2s}
 .card:hover .arr{background:var(--blue);color:#fff;transform:rotate(-45deg)}
-.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
-.tag{background:rgba(91,124,255,.09);color:#93a6ff;border-radius:6px;padding:3px 9px;font-size:10.5px;font-family:var(--mono)}
-.card-foot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center}
-.card-url{font-size:11px;color:var(--dim);font-family:var(--mono)}
-.visit{font-size:10.5px;font-family:var(--mono);color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;transition:letter-spacing .2s}
-.card:hover .visit{letter-spacing:1.5px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.tag{background:rgba(79,124,255,.09);color:#93a6ff;border:1px solid rgba(79,124,255,.12);border-radius:6px;padding:3px 9px;font-size:10.5px;font-family:var(--mono)}
 .card.hidden{display:none}
 
 /* PROCESS */
@@ -452,18 +461,24 @@ const PROJECTS = [
 const grid = document.getElementById('grid');
 grid.innerHTML = PROJECTS.map((p,i) => `
   <a class="card reveal${p.b?' feat':''}" href="${p.link||p.u}" target="_blank" data-c="${p.c}" data-delay="${(i%4)*70}">
-    <div class="card-img">
-      ${p.b?`<span class="badge"><span class="bd"></span>${p.b}</span>`:''}
-      <div class="ph">${p.n}</div>
-      <img src="images/${p.s}.png" alt="${p.n} screenshot" loading="lazy"
-           onload="this.previousElementSibling.style.display='none'"
-           onerror="this.remove()">
+    <div class="shot">
+      <div class="shot-bar">
+        <span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+        <span class="shot-url">${p.d}</span>
+      </div>
+      <div class="shot-view">
+        ${p.b?`<span class="badge"><span class="bd"></span>${p.b}</span>`:''}
+        <div class="ph">${p.n}</div>
+        <img src="images/${p.s}.png" alt="${p.n} screenshot" loading="lazy"
+             onload="this.previousElementSibling.style.display='none'"
+             onerror="this.remove()">
+        <span class="shot-cta">Visit ↗</span>
+      </div>
     </div>
     <div class="card-body">
       <div class="card-top"><span class="card-name">${p.n}</span><span class="arr">→</span></div>
       <div class="card-desc">${p.x}</div>
       <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-      <div class="card-foot"><span class="card-url">${p.d}</span><span class="visit">Visit →</span></div>
     </div>
   </a>`).join('');
 
